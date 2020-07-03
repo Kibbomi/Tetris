@@ -5,25 +5,25 @@ using namespace std;
 
 Point g_tetromino_pattern[7][4][4] =
 {
-    { { Point(0, 1), Point(0, 0), Point(0, -1), Point(0, -2) }, { Point(-2, 0), Point(-1, 0), Point(0, 0), Point(1, 0) },
-      { Point(0, 1), Point(0, 0), Point(0, -1), Point(0, -2) }, { Point(-2, 0), Point(-1, 0), Point(0, 0), Point(1, 0) } },  // I
-    { { Point(0, 1), Point(0, 0), Point(0, -1), Point(-1, -1) }, { Point(-1, 0), Point(0, 0), Point(1, 0), Point(-1, 1) },
-      { Point(0, 1), Point(0, 0), Point(1, 1), Point(0, -1) }, { Point(-1, 0), Point(0, 0), Point(1, 0), Point(1, -1) } },  // J
-    { { Point(-1, 1), Point(0, 1), Point(0, 0), Point(0, -1) }, { Point(1, 1), Point(-1, 0), Point(0, 0), Point(1, 0) },
-      { Point(0, 1), Point(0, 0), Point(0, -1), Point(1, -1) }, { Point(-1, 0), Point(0, 0), Point(1, 0), Point(-1, -1) } }, // L
-    { { Point(-1, 0), Point(0, 0), Point(-1, -1), Point(0, -1) }, { Point(-1, 0), Point(0, 0), Point(-1, -1), Point(0, -1) },
-      { Point(-1, 0), Point(0, 0), Point(-1, -1), Point(0, -1) }, { Point(-1, 0), Point(0, 0), Point(-1, -1), Point(0, -1) } },  // O
-    { { Point(0, 1), Point(0, 0), Point(1, 0), Point(1, -1) }, { Point(0, 0), Point(1, 0), Point(-1, -1), Point(0, -1) },
-      { Point(0, 1), Point(0, 0), Point(1, 0), Point(1, -1) }, { Point(0, 0), Point(1, 0), Point(-1, -1), Point(0, -1) } },  // S
-    { { Point(0, 1), Point(-1, 0), Point(0, 0), Point(0, -1) }, { Point(0, 1), Point(-1, 0), Point(0, 0), Point(1, 0) },
-      { Point(0, 1), Point(0, 0), Point(1, 0), Point(0, -1) }, { Point(-1, 0), Point(0, 0), Point(1, 0), Point(0, -1) } },  // T
-    { { Point(1, 1), Point(0, 0), Point(1, 0), Point(0, -1) }, { Point(-1, 0), Point(0, 0), Point(0, -1), Point(1, -1) },
-      { Point(1, 1), Point(0, 0), Point(1, 0), Point(0, -1) }, { Point(-1, 0), Point(0, 0), Point(0, -1), Point(1, -1) } }  // Z
+	{ { Point(0, 1), Point(0, 0), Point(0, -1), Point(0, -2) },{ Point(-2, 0), Point(-1, 0), Point(0, 0), Point(1, 0) },
+	{ Point(0, 1), Point(0, 0), Point(0, -1), Point(0, -2) },{ Point(-2, 0), Point(-1, 0), Point(0, 0), Point(1, 0) } },  // I
+	{ { Point(0, 1), Point(0, 0), Point(0, -1), Point(-1, -1) },{ Point(-1, 0), Point(0, 0), Point(1, 0), Point(-1, 1) },
+	{ Point(0, 1), Point(0, 0), Point(1, 1), Point(0, -1) },{ Point(-1, 0), Point(0, 0), Point(1, 0), Point(1, -1) } },  // J
+	{ { Point(-1, 1), Point(0, 1), Point(0, 0), Point(0, -1) },{ Point(1, 1), Point(-1, 0), Point(0, 0), Point(1, 0) },
+	{ Point(0, 1), Point(0, 0), Point(0, -1), Point(1, -1) },{ Point(-1, 0), Point(0, 0), Point(1, 0), Point(-1, -1) } }, // L
+	{ { Point(-1, 0), Point(0, 0), Point(-1, -1), Point(0, -1) },{ Point(-1, 0), Point(0, 0), Point(-1, -1), Point(0, -1) },
+	{ Point(-1, 0), Point(0, 0), Point(-1, -1), Point(0, -1) },{ Point(-1, 0), Point(0, 0), Point(-1, -1), Point(0, -1) } },  // O
+	{ { Point(0, 1), Point(0, 0), Point(1, 0), Point(1, -1) },{ Point(0, 0), Point(1, 0), Point(-1, -1), Point(0, -1) },
+	{ Point(0, 1), Point(0, 0), Point(1, 0), Point(1, -1) },{ Point(0, 0), Point(1, 0), Point(-1, -1), Point(0, -1) } },  // S
+	{ { Point(0, 1), Point(-1, 0), Point(0, 0), Point(0, -1) },{ Point(0, 1), Point(-1, 0), Point(0, 0), Point(1, 0) },
+	{ Point(0, 1), Point(0, 0), Point(1, 0), Point(0, -1) },{ Point(-1, 0), Point(0, 0), Point(1, 0), Point(0, -1) } },  // T
+	{ { Point(1, 1), Point(0, 0), Point(1, 0), Point(0, -1) },{ Point(-1, 0), Point(0, 0), Point(0, -1), Point(1, -1) },
+	{ Point(1, 1), Point(0, 0), Point(1, 0), Point(0, -1) },{ Point(-1, 0), Point(0, 0), Point(0, -1), Point(1, -1) } }  // Z
 };
 
 Tetromino::Tetromino(Board *board, TETROMINO_TYPE type) : board_(board), type_(type)
 {
-    rotate_ = 0;
+	rotate_ = 0;
 }
 
 void Tetromino::Draw(Point reference_pos)
@@ -60,7 +60,7 @@ void Tetromino::Erase(Point reference_pos)
 
 void Tetromino::SetCenterPos(Point pos)
 {
-    center_pos_ = pos;
+	center_pos_ = pos;
 }
 
 bool Tetromino::MoveDown(Point reference_pos)
@@ -84,22 +84,22 @@ bool Tetromino::MoveDown(Point reference_pos)
 
 void Tetromino::MoveRight(Point reference_pos)
 {
-    center_pos_.SetX(center_pos_.GetX() + 1);
+	center_pos_.SetX(center_pos_.GetX() + 1);
 
-    if (CheckValidPos())
-    {
-        center_pos_.SetX(center_pos_.GetX() - 1);
+	if (CheckValidPos())
+	{
+		center_pos_.SetX(center_pos_.GetX() - 1);
 		ShadowErase(reference_pos, Shadowtetromino(reference_pos));
-        Erase(reference_pos);
+		Erase(reference_pos);
 
-        center_pos_.SetX(center_pos_.GetX() + 1);
+		center_pos_.SetX(center_pos_.GetX() + 1);
 		ShadowDraw(reference_pos, Shadowtetromino(reference_pos));
-        Draw(reference_pos);
-    }
-    else
-    {
-        center_pos_.SetX(center_pos_.GetX() - 1);
-    }
+		Draw(reference_pos);
+	}
+	else
+	{
+		center_pos_.SetX(center_pos_.GetX() - 1);
+	}
 }
 
 void Tetromino::MoveLeft(Point reference_pos)
@@ -112,8 +112,8 @@ void Tetromino::MoveLeft(Point reference_pos)
 		ShadowErase(reference_pos, Shadowtetromino(reference_pos));
 		Erase(reference_pos);
 
-		center_pos_.SetX(center_pos_.GetX() - 1);	
-		ShadowDraw(reference_pos, Shadowtetromino(reference_pos));	
+		center_pos_.SetX(center_pos_.GetX() - 1);
+		ShadowDraw(reference_pos, Shadowtetromino(reference_pos));
 		Draw(reference_pos);
 	}
 	else
@@ -130,9 +130,9 @@ void Tetromino::Rotate(Point reference_pos)
 	if (CheckValidPos())
 	{
 		rotate_ = rotate_temp;//원래로 돌아가서 지운다음,..		
-		ShadowErase(reference_pos,Shadowtetromino(reference_pos));
+		ShadowErase(reference_pos, Shadowtetromino(reference_pos));
 		Erase(reference_pos);
-		rotate_ = (rotate_ + 1) % 4;	
+		rotate_ = (rotate_ + 1) % 4;
 		ShadowDraw(reference_pos, Shadowtetromino(reference_pos));
 		Draw(reference_pos);
 	}
@@ -144,27 +144,27 @@ void Tetromino::Rotate(Point reference_pos)
 
 void Tetromino::GoBottom(Point reference_pos)
 {
-    while (MoveDown(reference_pos))
-    {
-        Sleep(10); //Sleep(100);
-    }
+	while (MoveDown(reference_pos))
+	{
+		Sleep(10); //Sleep(100);
+	}
 }
 
 bool Tetromino::CheckValidPos(void)
 {
-    for (int i = 0; i < 4; i++)
-    {
-        Point cur_pos(center_pos_.GetX() + g_tetromino_pattern[type_][rotate_][i].GetX(), center_pos_.GetY() + g_tetromino_pattern[type_][rotate_][i].GetY());
+	for (int i = 0; i < 4; i++)
+	{
+		Point cur_pos(center_pos_.GetX() + g_tetromino_pattern[type_][rotate_][i].GetX(), center_pos_.GetY() + g_tetromino_pattern[type_][rotate_][i].GetY());
 
-        if (cur_pos.GetX() < 0 || cur_pos.GetX() > 9)
-            return false;
-        if (cur_pos.GetY() < 0)
-            return false;
-        if (cur_pos.GetY() <= 19 && board_->GetState(cur_pos) != EMPTY)
-            return false;
-    }
+		if (cur_pos.GetX() < 0 || cur_pos.GetX() > 9)
+			return false;
+		if (cur_pos.GetY() < 0)
+			return false;
+		if (cur_pos.GetY() <= 19 && board_->GetState(cur_pos) != EMPTY)
+			return false;
+	}
 
-    return true;
+	return true;
 }
 
 void Tetromino::MarkCurTetrominoPos(Point reference_pos)// board_ 2차원 배열에서 테트로미노의 4개의 각 점 위치를 mark하기

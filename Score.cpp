@@ -9,22 +9,22 @@ using namespace std;
 
 Score::Score()
 {
-    score_ = 0;
-    score_pos_ = Point(28, 9);
+	score_ = 0;
+	score_pos_ = Point(28, 9);
 }
 
 void Score::Print(Point reference_pos)
 {
-    Point::GotoXY(reference_pos + score_pos_);
-    cout << "    ";
-    Point::GotoXY(reference_pos + score_pos_);
-    cout << setw(5) << score_;
+	Point::GotoXY(reference_pos + score_pos_);
+	cout << "    ";
+	Point::GotoXY(reference_pos + score_pos_);
+	cout << setw(5) << score_;
 }
 
 void Score::UpdateScore(Point reference_pos, int increment)
 {
-    score_ += increment;
-    Print(reference_pos);
+	score_ += increment;
+	Print(reference_pos);
 }
 void Score::ReadRanking(void)
 {
@@ -42,7 +42,7 @@ void Score::ReadRanking(void)
 		Ranking.getline(temp, 100);
 		cout << temp << endl;
 	}
-		
+
 
 	Ranking.close();
 }

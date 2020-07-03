@@ -4,40 +4,18 @@
 #include <conio.h>
 using namespace std;
 #include "Tetris.h"
+#include "Option.h"
 
 int main()
 {
 	srand(time(NULL));		// 난수 발생기 초기화
 	int input;
-
+	Option opt_;
+	
+	
 	while (1)
 	{
-		cout << "┌─────────────────────────────┐" << '\n';
-		cout << "│┌──┐ ┌──┐  ┌──┐  ┌──┐   ┌──┐  ┌──┐│" << '\n';
-		cout << "│└┐┌┘ │┌─┘  └┐┌┘  │┌┐│   └┐┌┘  │┌─┘│" << '\n';
-		cout << "│  ││   │└─┐    ││    │└┘│     ││    │└─┐│" << '\n';
-		cout << "│  ││   │┌─┘    ││    │┌┐│     ││    └─┐││" << '\n';
-		cout << "│  ││   │└─┐    ││    ││ ＼＼  ┌┘└┐  ┌─┘││" << '\n';
-		cout << "│  └┘   └──┘    └┘    └┘   ￣  └──┘  └──┘│" << '\n';
-		cout << "└──────────┐              ┌──────────┘" << '\n';
-		cout << "                      │              │" << '\n';
-		cout << "                      │              │	" << '\n';
-		cout << "                      │              │" << '\n';
-		cout << "                      │              │	" << '\n';
-		cout << "                      │              │	" << '\n';
-		cout << "                      │              │	" << '\n';
-		cout << "                      │              │	" << '\n';
-		cout << "                      │              │" << '\n';
-		cout << "                      │              │	" << '\n';
-		cout << "                      └───────┘" << '\n';
-
-		cout << "                     " << "1. 1P" << '\n';
-		cout << "                     " << "2. 1P vs 2P" << '\n';
-		cout << "                     " << "3. 랭킹정보" << '\n';
-		cout << "                     " << "4. 나가기" << '\n';
-		cout << ">> 1인용, 2인용 선택 : ";
-		cin >> input;
-
+		input = opt_.show_main();
 		system("cls");
 
 		if (input == 1)         // 1인용 
@@ -83,18 +61,7 @@ int main()
 			//return 0;
 		}
 	}
-	
 
-    return 0;
+
+	return 0;
 }
-
-/*
-int main()
-{
-	srand(time(NULL));
-	Tetris tetris;
-	tetris.Run();
-
-    return 0;
-}
-*/

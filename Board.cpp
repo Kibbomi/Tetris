@@ -51,21 +51,21 @@ Board::Board()
 {
 	int i, j;
 
-	for (i = 0; i < 10; i++) 
-    {
+	for (i = 0; i < 10; i++)
+	{
 		for (j = 0; j < 20; j++)
 			board_[i][j] = EMPTY;
 	}
 }
 
 int Board::GetState(Point pos)
-{ 
-	return board_[pos.GetX()][pos.GetY()]; 
+{
+	return board_[pos.GetX()][pos.GetY()];
 }
 
-void Board::SetState(Point pos, int state) 
-{ 
-	board_[pos.GetX()][pos.GetY()] = state;	
+void Board::SetState(Point pos, int state)
+{
+	board_[pos.GetX()][pos.GetY()] = state;
 }
 
 int Board::CheckLineFull(Point reference_pos)

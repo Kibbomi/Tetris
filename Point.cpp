@@ -4,8 +4,8 @@
 #include "Point.h"
 using namespace std;
 
-Point::Point(int x, int y) : x_(x), y_(y) 
-{ 
+Point::Point(int x, int y) : x_(x), y_(y)
+{
 
 }
 
@@ -14,7 +14,7 @@ Point Point::operator+(const Point &pt)
 	return Point(x_ + pt.x_, y_ + pt.y_);
 }
 
-void Point::GotoXY(int x, int y)		// 커서 위치 이동
+void Point::GotoXY(int x, int y)
 {
 	COORD Pos = { x, y };
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Pos);

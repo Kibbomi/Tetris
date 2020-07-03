@@ -1,7 +1,6 @@
 #include "Tetris.h"
 #include "Controller.h"
 #include "Tetromino.h"
-//#include "GhostTetromino.h"
 #include <conio.h>
 #include <cstdlib>
 #include <iostream>
@@ -101,23 +100,23 @@ void Tetris::DrawBoard(void)
 
 void Tetris::Run(void)
 {
-    while (running_) 
-    {
-        RunStep();
-    }
+	while (running_)
+	{
+		RunStep();
+	}
 }
 
 void Tetris::RunStep(void)
 {
-    if (_kbhit())
-    {
-        int key = Controller::GetKey();
-        KeyHandler(key);
-    }
-    else 
-    {
-        NormalStep();		
-    }
+	if (_kbhit())
+	{
+		int key = Controller::GetKey();
+		KeyHandler(key);
+	}
+	else
+	{
+		NormalStep();
+	}
 }
 
 bool Tetris::KeyHandler(int key)
@@ -164,17 +163,17 @@ bool Tetris::KeyHandler(int key)
 
 void Tetris::NormalStep(void)
 {
-    if (GetDiffTime() >= falling_speed_) 
-    {
-        if (cur_tetromino_->MoveDown(reference_pos_)) 
-        {
-            start_time_ = clock();
-        }
-        else 
-        {	// 끝까지 내려왔음. 후처리
-            PrepareNextStep();
-        }
-    }
+	if (GetDiffTime() >= falling_speed_)
+	{
+		if (cur_tetromino_->MoveDown(reference_pos_))
+		{
+			start_time_ = clock();
+		}
+		else
+		{	// 끝까지 내려왔음. 후처리
+			PrepareNextStep();
+		}
+	}
 }
 
 void Tetris::PrepareNextStep(void)
@@ -218,12 +217,12 @@ void Tetris::PrepareNextStep(void)
 
 void Tetris::GenerateNextTetromino(void)
 {
-    TETROMINO_TYPE tetromino_type = (TETROMINO_TYPE) (rand() % TETROMINO_TYPE_COUNT);
-    //if (rand() % 10 == 0)           // GhostTetromino
-    //    next_tetromino_ = new GhostTetromino(&board_, tetromino_type);
-    //else
-    next_tetromino_ = new Tetromino(&board_, tetromino_type);
-    next_tetromino_->SetCenterPos(g_next_tetromino_init_pos);
+	TETROMINO_TYPE tetromino_type = (TETROMINO_TYPE)(rand() % TETROMINO_TYPE_COUNT);
+	//if (rand() % 10 == 0)           // GhostTetromino
+	//    next_tetromino_ = new GhostTetromino(&board_, tetromino_type);
+	//else
+	next_tetromino_ = new Tetromino(&board_, tetromino_type);
+	next_tetromino_->SetCenterPos(g_next_tetromino_init_pos);
 }
 
 void Tetris::GetCurTetrominoFromNext(void)//써야할부분...
@@ -238,16 +237,16 @@ void Tetris::GetCurTetrominoFromNext(void)//써야할부분...
 
 double Tetris::GetDiffTime(void)
 {
-    clock_t CurTime;
-    CurTime = clock();	//time(&CurTime);
-    return ((double) (CurTime - start_time_) / CLOCKS_PER_SEC);
+	clock_t CurTime;
+	CurTime = clock();	//time(&CurTime);
+	return ((double)(CurTime - start_time_) / CLOCKS_PER_SEC);
 }
 
 // Utility
 void Tetris::SetCursorInvisible(void)	// 화면 커서를 안 보이게 함
 {
-    CONSOLE_CURSOR_INFO ci = { 10, FALSE };
-    SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &ci);
+	CONSOLE_CURSOR_INFO ci = { 10, FALSE };
+	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &ci);
 }
 void Tetris::Changefallingspeed(void)
 {

@@ -1,9 +1,9 @@
 #ifndef KIBBOMI_POINT
 #define KIBBOMI_POINT
 
-class Point 
+class Point
 {
-public :
+public:
 	Point(int x = -1, int y = -1);
 	int GetX() const { return x_; }
 	int GetY() const { return y_; }
@@ -15,7 +15,7 @@ public :
 	static void GotoXY(Point pos);
 	static Point GetScrPosFromCurPos(const Point &pos);
 
-private :
+private:
 	int x_;
 	int y_;
 };
