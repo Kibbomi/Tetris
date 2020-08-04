@@ -1,2 +1,3 @@
 # Tetris
-Tetris developed by using c++. this game is under developing. you can play this game on console environment.
+I make a Tetris game developed by using c++.
+You can play tetris on the console environment.
